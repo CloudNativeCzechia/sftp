@@ -54,6 +54,14 @@ docker run \
     foo:pass:1001
 ```
 
+## Changing the home directory of the user
+
+```
+docker run -p 22:22 -d atmoz/sftp foo:pass::::/home/bar
+```
+
+User "foo" with password "pass" will be created with the home directory "/home/bar"
+
 ### Using Docker Compose:
 
 ```
@@ -98,7 +106,7 @@ docker run \
     'foo:$1$0G2g0GSt$ewU0t6GXG15.0hWoOX8X9.:e:1001'
 ```
 
-Tip: you can use [atmoz/makepasswd](https://hub.docker.com/r/atmoz/makepasswd/) to generate encrypted passwords:  
+Tip: you can use [atmoz/makepasswd](https://hub.docker.com/r/atmoz/makepasswd/) to generate encrypted passwords:
 `echo -n "your-password" | docker run -i --rm atmoz/makepasswd --crypt-md5 --clearfrom=-`
 
 ## Logging in with SSH keys
